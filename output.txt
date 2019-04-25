@@ -1,0 +1,9 @@
+Storage Target: Xilinx Flash/PROM
+Storage Family: Platform Flash
+xcf04s          [4 M]
+Auto Select Storage Device
+FF
+Untitled
+C:\work\SPWM\
+
+MCS

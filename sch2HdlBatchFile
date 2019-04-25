@@ -1,0 +1,1 @@
+sch2hdl,-sympath,C:/work/SPWM/ipcore_dir,-intstyle,ise,-family,spartan3e,-flat,-suppress,-vhdl,C:/work/SPWM/main.vhf,-w,C:/work/SPWM/main.sch

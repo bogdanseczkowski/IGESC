@@ -1,0 +1,12 @@
+ADDRESS_MAP mbl MICROBLAZE-LE 100
+  ADDRESS_SPACE lmb_bram COMBINED [0x00000000:0x00001fff]
+    ADDRESS_RANGE RAMB16
+      BUS_BLOCK
+        mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S9.The_BRAMs[0].RAMB16_S9_1 [31:24] INPUT = mbl.lmb_bram_0.mem;
+        mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S9.The_BRAMs[1].RAMB16_S9_1 [23:16] INPUT = mbl.lmb_bram_1.mem;
+        mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S9.The_BRAMs[2].RAMB16_S9_1 [15:8] INPUT = mbl.lmb_bram_2.mem;
+        mcs_0/U0/lmb_bram_I/RAM_Inst/Using_B16_S9.The_BRAMs[3].RAMB16_S9_1 [7:0] INPUT = mbl.lmb_bram_3.mem;
+      END_BUS_BLOCK;
+    END_ADDRESS_RANGE;
+  END_ADDRESS_SPACE;
+END_ADDRESS_MAP;
