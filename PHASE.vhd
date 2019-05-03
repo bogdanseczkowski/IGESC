@@ -7,8 +7,9 @@
 -- Target Devices: xc3s500e-4fg320
 -- Description: 
 --	This is used to offset lookup table for each phase
--- Revision: 0.01
+-- Revision: 0.02
 -- Revision 0.01 - Initial logic
+-- Revision 0.02 - 3phase extension 
 -- Additional Comments: 
 ------------------------------------------------------------------------------------
 library IEEE;
@@ -24,13 +25,8 @@ end PHASE;
 
 architecture Behavioral of PHASE is
 begin
-	PROCESS (CLK)
-	BEGIN
-		IF(rising_edge(CLK))THEN
 			ADDRU <= ADDR;
 			ADDRV <= ADDR + 85;
 			ADDRW <= ADDR + 170;
-		END IF;
-	END PROCESS;
 end Behavioral;
 

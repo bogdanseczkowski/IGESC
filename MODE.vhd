@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    21:36:41 04/12/2019 
+-- Create Date:    00:39:47 04/27/2019 
 -- Design Name: 
--- Module Name:    PWM - Behavioral 
+-- Module Name:    MODE - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,26 +29,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity PWM is
-    Port ( CLK : in  STD_LOGIC;
-           PERIOD : in  STD_LOGIC_VECTOR (8 downto 0);
-           DUTY : in  STD_LOGIC_VECTOR (8 downto 0);
-           PWM : out  STD_LOGIC;
-			  INT : out STD_LOGIC;
-			  RUN : in STD_LOGIC;
-end PWM;
+entity MODE is
+    Port ( BREAK : in  STD_LOGIC;
+           RUN : in  STD_LOGIC;
+           ENA : in  STD_LOGIC;
+           PWMU : in  STD_LOGIC;
+           PWMV : in  STD_LOGIC;
+           PWMW : in  STD_LOGIC;
+           DIRU : in  STD_LOGIC;
+           DIRV : in  STD_LOGIC;
+           DIRW : in  STD_LOGIC;
+           OPWMU : out  STD_LOGIC;
+           OPWMV : out  STD_LOGIC;
+           OPWMW : out  STD_LOGIC;
+           ODIRU : out  STD_LOGIC;
+           ODIRV : out  STD_LOGIC;
+           ODIRW : out  STD_LOGIC);
+end MODE;
 
-architecture Behavioral of PWM is
-	signal PERIOD_CNT : STD_LOGIC_VECTOR (8 downto 0);
-	signal SCALED : STD_LOGIC;
+architecture Behavioral of MODE is
+
 begin
-	PROCESS (CLK)
-		IF(rising_edge(CLK))THEN
-			IF(PERIOD_CNT<PERIOD) PERIOD_CNT<= PERIOD_CNT + 1;
-			ELSE PERIOD_CNT <= 0;
-		END IF;
-		PWM<=COUNTER<DUTY;
-	END PROCESS;
 	
 
 end Behavioral;

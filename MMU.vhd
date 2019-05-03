@@ -7,8 +7,9 @@
 -- Target Devices: xc3s500e-4fg320
 -- Description: 
 --	This is used to divide one lookup table for 3 separate channels.
--- Revision: 0.01
+-- Revision: 0.02
 -- Revision 0.01 - Initial logic
+-- Revision 0.02 - 3phase extension
 -- Additional Comments: 
 -- known issues: value update is delayed by max 3 clock cycles
 ------------------------------------------------------------------------------------
@@ -30,29 +31,32 @@ Port ( TRIG : IN STD_LOGIC;
 end MMU;
 
 architecture Behavioral of MMU is
-signal CNT :  unsigned (2 downto 0);
+signal CNT:	integer range 0 to 3;
 begin
-	PROCESS(CLK)
+	PROCESS(CLK,TRIG)
 	BEGIN
-		IF(rising_edge(CLK) AND TRIG)THEN
-			CNT <= "00";
-		ELSIF(rising_edge(CLK) AND CNT < 3)
-			CASE CNT IS
-				WHEN "00" =>
-					ADDR <= ADDRU;
-					DATAU <= DATA;
-				WHEN "01" =>
-					ADDR <= ADDRV;
-					DATAV <= DATA;
-				WHEN "10" =>
-					ADDR <= ADDRW;
-					DATAW <= DATA;
-			END CASE;	
-		END IF;
-		IF(falling_edge(CLK)AND CNT < 3)THEN
+		IF(TRIG='1')THEN
+			CNT<=0;
+		ELSIF(rising_edge(CLK))THEN
 			CNT<=CNT+1;
 		END IF;
-	END PROCESS
-
+		END PROCESS;
+		PROCESS(CNT)
+		BEGIN
+		CASE CNT IS
+			WHEN 0 =>
+				ADDR <= ADDRU;
+				DATAU <= DATA;
+			WHEN 1 =>
+				ADDR <= ADDRV;
+				DATAV <= DATA;
+			WHEN 2 =>
+				ADDR <= ADDRW;
+				DATAW <= DATA;
+			WHEN others =>
+				ADDR <= ADDRW;
+				DATAW <= DATA;
+		END CASE;	
+		END PROCESS;
 end Behavioral;
 
