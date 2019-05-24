@@ -8,9 +8,9 @@ DONE:
 - H bridge low/high side switching
 - 3 phase extension
 - ability to stop PWM counter
-To DO:
 - Reverse
-- dual microblaze based control (one for comunication Linux? / one for realtime control)
+To DO:
+- microblaze based control
 - CAN + RS232 / ETHERNET? MODBUS?
 - IPD - initial position detection
 - HW based encoder support
