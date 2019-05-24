@@ -18,6 +18,7 @@ To DO:
 - HW based encoder support
 - Eletronics (VESC fork)
 - Regenerative Braking
+
 Known problems:
 - Lookup table is not optimally implemented
 - Currently in if it works don't touch it state
